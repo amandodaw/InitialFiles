@@ -1,6 +1,7 @@
 extends Area2D
 
 export(PackedScene) onready var mob_scene
+onready var sword_scene = load("res://Scenes/Sword.tscn")
 
 var speed = 400
 
@@ -13,7 +14,9 @@ func _process(delta):
 
 func control():
 	if Input.is_action_just_pressed("d"):
-		print("D pressed")
+		var sword = sword_scene.instance()
+		sword.position = Vector2(sword.position.x-16, sword.position.y)
+		add_child(sword)
 
 func movement(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.

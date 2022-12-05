@@ -5,7 +5,8 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 13.0384
 
-[node name="Mob" type="Area2D"]
+[node name="Mob" type="RigidBody2D"]
+gravity_scale = 0.0
 __meta__ = {
 "_edit_group_": true
 }

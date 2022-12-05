@@ -14,7 +14,6 @@ func _process(delta):
 func control():
 	if Input.is_action_just_pressed("d"):
 		print("D pressed")
-		summon()
 
 func movement(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
@@ -31,10 +30,3 @@ func movement(delta):
 		velocity = velocity.normalized() * speed
 	
 	position += velocity * delta
-
-
-func summon():
-	var mob = mob_scene.instance()
-	mob.position = Vector2(position.x, position.y)
-	print(position, mob.position)
-	add_child(mob)

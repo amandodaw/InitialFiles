@@ -40,6 +40,7 @@ tracks/0/keys = {
 
 [node name="Sword" type="Area2D"]
 scale = Vector2( 1.5, 1.5 )
+collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

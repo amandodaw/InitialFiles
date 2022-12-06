@@ -1,6 +1,7 @@
 extends Node
 
 onready var mob_scene = load("res://Scenes/Mob.tscn")
+var hp = 100
 
 func _on_MobTimer_timeout():
 	# Create a new instance of the Mob scene.
@@ -22,3 +23,6 @@ func _on_MobTimer_timeout():
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
 
+func get_hit():
+	hp -= 1
+	$HPLabel.text = "HP: " + str(hp)

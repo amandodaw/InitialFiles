@@ -1,4 +1,8 @@
 extends RigidBody2D
+signal damage
+
+func _ready():
+	connect("damage", get_parent(), "get_hit")
 
 func _on_Area2D_body_entered(body):
 	if body != self:
@@ -7,3 +11,7 @@ func _on_Area2D_body_entered(body):
 
 func _on_Area2D_area_entered(area):
 	queue_free()
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	emit_signal("damage")

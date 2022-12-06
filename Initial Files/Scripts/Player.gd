@@ -4,6 +4,7 @@ export(PackedScene) onready var mob_scene
 onready var sword_scene = load("res://Scenes/Sword.tscn")
 
 var speed = 400
+var sword_scale = Vector2(1,1)
 
 func _ready():
 	position = get_viewport_rect().size/2
@@ -16,6 +17,7 @@ func control():
 	if Input.is_action_just_pressed("d"):
 		var sword = sword_scene.instance()
 		sword.position = Vector2(sword.position.x-16, sword.position.y)
+		sword.scale = sword_scale
 		add_child(sword)
 
 func movement(delta):
@@ -33,3 +35,6 @@ func movement(delta):
 		velocity = velocity.normalized() * speed
 	
 	position += velocity * delta
+
+func sword_increment():
+	sword_scale *= 1.25

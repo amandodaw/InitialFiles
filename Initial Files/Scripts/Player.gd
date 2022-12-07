@@ -37,4 +37,6 @@ func movement(delta):
 	position += velocity * delta
 
 func sword_increment():
-	sword_scale *= 1.25
+	if sword_scale >= Vector2( 5, 5):
+		return
+	sword_scale += Vector2(0.1, 0.1)
